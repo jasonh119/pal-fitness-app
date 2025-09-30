@@ -9,6 +9,7 @@ export default function Navigation() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Targets', href: '/targets' },
+    { name: 'GPS Tracking', href: '/activities/gps-tracking' },
   ];
 
   return (
