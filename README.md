@@ -1,3 +1,6 @@
+# pal-fitness-app
+Fitness Tracking and Training Application, built with VSCode, GitHub Copilot, various models and Node.js
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
