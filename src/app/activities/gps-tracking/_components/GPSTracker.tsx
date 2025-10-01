@@ -247,7 +247,7 @@ export default function GPSTracker() {
         <p><strong>Should show loading screen:</strong> {(String(permissionState) === 'granted' && !initialLocationLoaded) ? '✅ YES' : '❌ NO'}</p>
         <p><strong>Should show main GPS interface:</strong> {(String(permissionState) === 'granted' && initialLocationLoaded) ? '✅ YES' : '❌ NO'}</p>
         <p><strong>Actual permission state type:</strong> {typeof permissionState}</p>
-        <p><strong>Permission state value:</strong> "{String(permissionState)}"</p>
+        <p><strong>Permission state value:</strong> &quot;{String(permissionState)}&quot;</p>
       </div>
 
       {/* Route Statistics */}

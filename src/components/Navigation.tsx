@@ -10,6 +10,7 @@ export default function Navigation() {
     { name: 'Home', href: '/' },
     { name: 'Targets', href: '/targets' },
     { name: 'GPS Tracking', href: '/activities/gps-tracking' },
+    { name: 'Routes', href: '/routes' },
   ];
 
   return (

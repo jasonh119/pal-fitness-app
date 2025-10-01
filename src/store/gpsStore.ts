@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { GPSTrackingStore, GPSPoint, ActivitySession } from '@/types/gps';
+import { GPSTrackingStore, GPSPoint } from '@/types/gps';
+import { SavedRoute } from '@/types/route';
 import { calculateDistance, calculateSpeed } from '@/utils/gpsCalculations';
 
 const initialState = {
@@ -60,21 +61,23 @@ export const useGPSStore = create<GPSTrackingStore>((set, get) => ({
     
     // Save the route if there are points
     if (state.routePoints.length > 0) {
-      const session: ActivitySession = {
+      const now = new Date();
+      const route: SavedRoute = {
         id: Date.now().toString(),
-        startTime: state.startTime!,
-        endTime: new Date(),
-        isActive: false,
-        isPaused: false,
-        route: state.routePoints,
+        name: `${state.routePoints.length > 0 ? 'Running' : 'Activity'} - ${now.toLocaleDateString()}`,
+        points: state.routePoints,
         totalDistance: state.totalDistance,
         duration: state.elapsedTime,
+        averageSpeed: state.averageSpeed,
+        startTime: state.startTime!,
+        endTime: now,
         activityType: 'running', // Default, could be made dynamic
+        createdAt: now,
       };
       
-      // Store in localStorage for now
+      // Store in the new format
       const savedRoutes = JSON.parse(localStorage.getItem('savedRoutes') || '[]');
-      savedRoutes.push(session);
+      savedRoutes.unshift(route); // Add to beginning of array
       localStorage.setItem('savedRoutes', JSON.stringify(savedRoutes));
     }
     
